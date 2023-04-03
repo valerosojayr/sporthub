@@ -1,0 +1,104 @@
+TRY TO DO REGISTRATION VIA EVENT ID BUT IT'S NOT WORKING.
+
+Populate is not working
+Error: Populate is not a function
+TypeError: registration.populate(...) populate is not a function.
+
+
+*************
+
+
+
+LET'S REGISTER A USER
+POST http://localhost:3000/user/register  - REGISTER USER
+Body>Raw
+Make sur your POstman is in Json not in text
+
+{"firstName":"Vita",
+"lastName": "VitaC",
+"password" : "9jjjjjfdsaf",
+"email": "vitac@gmail.com"}
+
+result
+{
+    "firstName": "Vita",
+    "lastName": "VitaC",
+    "password": "$2a$10$jgWTc.O8/4GiNeT2kArMmud3ibBn.FQhyJTKtMT6UX0Ob4yKyT8Jy",
+    "email": "vitac@gmail.com",
+    "_id": "642b1b5539926291ff605193",
+    "__v": 0
+}
+
+
+
+
+***********
+GET  http://localhost:3000/user/:userId   - GET USER
+	Make sure it's in json not text 
+	e.g. http://localhost:3000/user/642b1b5539926291ff605193
+
+***********
+
+POST AN EVENT
+POST  http://localhost:3000/event
+routes.post('/event', upload.single("thumbnail"), EventController.createEvent);
+	http://localhost:3000/event
+
+	form-data
+
+	title
+	description
+	price
+	thumbnail
+	sport
+	date
+
+	Headers
+	_id 642b1b5539926291ff605193
+	Do not use use user_id instead just use _id or else it will not work.
+
+
+RESULT
+{
+    "title": "my title",
+    "description": "my description",
+    "price": 9000,
+    "thumbnail": "Excel2019All-in-OneForDummies-1680546912639.pdf",
+    "sport": "basketball",
+    "user": "642afedd82c180c78dc3e969",
+    "_id": "642b1c6139926291ff605198",
+    "__v": 0,
+    "thumbnail_url": "http://localhost:3000/files/Excel2019All-in-OneForDummies-1680546912639.pdf",
+    "id": "642b1c6139926291ff605198"
+}
+
+
+
+
+REMARKS
+USER 	      642b1b5539926291ff605193
+EVENT ID     "id": "642b1c6139926291ff605198"
+
+*************************************************************************************
+
+
+POST  http://localhost:3000/registration/:eventId
+
+REMARKS
+In Postman
+POST   http://localhost:3000/registration/642b1c6139926291ff605198
+
+In  Headers
+_id		642b1b5539926291ff605193
+
+Body/Raw>	Json
+{"date": "21/05/2023"}
+
+
+Remarks:
+remember in our model for RegistrationController?
+We did object destructiong for our eventId, user_id, and date.
+
+Populate is not working
+Error: Populate is not a function
+TypeError: registration.populate(...) populate is not a function.

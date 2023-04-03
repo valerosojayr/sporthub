@@ -17,11 +17,12 @@ module.exports = {
 
         })
 
-        //GIVING AN ERRROR
+        // GIVING AN ERRROR
         await registration
         .populate("event")
         .populate("user")
         .execPopulate();
+
 
         return res.json(registration)
     }

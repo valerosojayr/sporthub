@@ -16,6 +16,8 @@ const RegistrationSchema = new mongoose.Schema({
 });
 
 
+
+
 module.exports = mongoose.model("Registration", RegistrationSchema)
 
 
